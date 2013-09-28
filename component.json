@@ -1,0 +1,20 @@
+{
+  "name": "feature-ui",
+  "repo": "CamShaft/feature-ui",
+  "description": "UI for toggling feature flags",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "CamShaft/feature": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "feature-ui.css"
+  ]
+}
