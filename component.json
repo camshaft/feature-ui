@@ -8,7 +8,8 @@
     "CamShaft/feature": "*",
     "visionmedia/superagent": "*",
     "CamShaft/console": "*",
-    "component/cookie": "*"
+    "component/cookie": "*",
+    "jofan/Draggy": "*"
   },
   "development": {},
   "license": "MIT",

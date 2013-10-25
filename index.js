@@ -5,6 +5,7 @@
 var superagent = require('superagent');
 var feature = require('feature');
 var console = require('console');
+var Draggy = require('draggy');
 
 /**
  * Start the feature-ui
@@ -82,4 +83,5 @@ module.exports = function(options) {
   }
 
   document.body.appendChild(ui);
+  new Draggy(ui);
 };
