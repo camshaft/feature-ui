@@ -57,7 +57,9 @@
   display: inline-block;
 }
 
-.feature-ui a, a:visited, a:active {
+.feature-ui a, 
+.feature-ui a:visited, 
+.feature-ui a:active {
   background: #254d73;
 }
 
