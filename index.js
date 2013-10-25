@@ -39,11 +39,31 @@ module.exports = function(options) {
 
   var ul = document.createElement('ul');
   var ui = document.createElement('div');
+  var reset = document.createElement('a');
+  var close = document.createElement('a');
+  close.className = 'close';
+  reset.className = 'reset';
+  close.innerText = '×';
+  reset.innerText = 'reset';
+  close.href = 'javascript:;';
+  reset.href = 'javascript:;';
+  close.onclick = function() {
+    document.body.removeChild(ui);
+    return false;
+  }
+  reset.onclick = function() {
+    feature.reset();
+    return false;
+  }
+
+  ui.appendChild(reset);
+  ui.appendChild(close);
   ui.className = 'feature-ui';
   ui.appendChild(ul);
 
   function createItem(item) {
     var li = document.createElement('li');
+    var label = document.createElement('label');
     var span = document.createElement('span');
     span.innerText = item;
     var checkbox = document.createElement('input');
@@ -52,8 +72,12 @@ module.exports = function(options) {
     checkbox.onchange = function() {
       feature(item) ? feature.disable(item) : feature.enable(item);
     };
-    li.appendChild(checkbox);
-    li.appendChild(span);
+    feature.watch(item, function(enabled) {
+      checkbox.checked = enabled;
+    });
+    label.appendChild(checkbox);
+    label.appendChild(span);
+    li.appendChild(label);
     ul.appendChild(li);
   }
 

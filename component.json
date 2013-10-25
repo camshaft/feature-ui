@@ -7,7 +7,8 @@
   "dependencies": {
     "CamShaft/feature": "*",
     "visionmedia/superagent": "*",
-    "CamShaft/console": "*"
+    "CamShaft/console": "*",
+    "component/cookie": "*"
   },
   "development": {},
   "license": "MIT",

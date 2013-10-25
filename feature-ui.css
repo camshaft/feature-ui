@@ -2,33 +2,76 @@
   font-family: Helvetica, Arial, sans-serif;
   padding: 20px;
   position: fixed;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   margin: 20px;
   width: 200px;
+  top: 0;
+  left: 0;
+  background: white;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .feature-ui ul {
-  padding-left: 5px;
-  margin-top:0;
+  padding-left: 0px;
+  margin-top: 10px;
 }
 
 .feature-ui li {
   list-style: none;
 }
 
+.feature-ui label {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
 .feature-ui span {
+  display: block;
   float: left;
 }
 
 .feature-ui input {
   float: right;
-  clear: right;
 }
 
-input:checked ~ span {
+.feature-ui input:checked ~ span {
   color: black
 }
 
-input ~ span {
+.feature-ui input ~ span {
   color: #ccc
 }
+
+.feature-ui a {
+  font-weight: 100;
+  color: white;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.feature-ui a, a:visited, a:active {
+  background: #254d73;
+}
+
+.feature-ui a:hover {
+  background: #19334c;
+}
+
+.feature-ui a + a {
+  float: left;
+}
+
+.feature-ui a + a {
+  float: right;
+  clear: both;
+}
+
+
