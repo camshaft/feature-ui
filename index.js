@@ -4,6 +4,17 @@
 
 var superagent = require('superagent');
 var feature = require('feature');
+var console = require('console');
+
+/**
+ * Start the feature-ui
+ *
+ * Options
+ *   - query: defaults to 'features'
+ *   - url: defaults to '/features.json'
+ *
+ * @param {Object} options
+ */
 
 module.exports = function(options) {
   options = options || {};
@@ -15,12 +26,16 @@ module.exports = function(options) {
 
   superagent
     .get(url)
-    .end(function(err, res) {
-      if (err) return console.error(err);
-      if (!res.ok) return console.error(new Error(res.text));
+    .on('error', onerror)
+    .end(function(res) {
+      if ('testing', arguments);
+      if (!res.ok) return onerror(new Error(res.text));
       res.body.forEach(createItem);
     });
 
+  function onerror(err) {
+    console.error(err);
+  }
 
   var ul = document.createElement('ul');
   var ui = document.createElement('div');
@@ -35,9 +50,7 @@ module.exports = function(options) {
     checkbox.type = 'checkbox';
     checkbox.checked = feature(item);
     checkbox.onchange = function() {
-      console.log(item, feature(item));
-      if (feature(item)) return feature.disable(item);
-      feature.enable(item);
+      feature(item) ? feature.disable(item) : feature.enable(item);
     };
     li.appendChild(checkbox);
     li.appendChild(span);
@@ -45,6 +58,4 @@ module.exports = function(options) {
   }
 
   document.body.appendChild(ui);
-
 };
-

@@ -6,7 +6,8 @@
   "keywords": [],
   "dependencies": {
     "CamShaft/feature": "*",
-    "visionmedia/superagent": "*"
+    "visionmedia/superagent": "*",
+    "CamShaft/console": "*"
   },
   "development": {},
   "license": "MIT",
