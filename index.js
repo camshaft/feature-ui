@@ -5,7 +5,12 @@
 var superagent = require('superagent');
 var feature = require('feature');
 var console = require('console');
-var Draggy = require('draggy');
+var Draggy;
+
+try {
+  Draggy = require('draggy');
+} catch (e) {}
+
 
 /**
  * Start the feature-ui
@@ -25,23 +30,11 @@ module.exports = function(options) {
 
   if (!~(window.location.search || '').indexOf('?' + query)) return;
 
-  superagent
-    .get(url)
-    .on('error', onerror)
-    .end(function(res) {
-      if ('testing', arguments);
-      if (!res.ok) return onerror(new Error(res.text));
-      res.body.forEach(createItem);
-    });
-
-  function onerror(err) {
-    console.error(err);
-  }
-
-  var ul = document.createElement('ul');
   var ui = document.createElement('div');
+  var ul = document.createElement('ul');
   var reset = document.createElement('a');
   var close = document.createElement('a');
+
   close.className = 'close';
   reset.className = 'reset';
   close.innerText = '×';
@@ -82,6 +75,19 @@ module.exports = function(options) {
     ul.appendChild(li);
   }
 
-  document.body.appendChild(ui);
-  new Draggy(ui);
+  superagent
+    .get(url)
+    .on('error', onerror)
+    .end(function(res) {
+      if ('testing', arguments);
+      if (!res.ok) return onerror(new Error(res.text));
+      res.body.forEach(createItem);
+      document.body.appendChild(ui);
+      if (Draggy) new Draggy(ui);
+    });
+
+  function onerror(err) {
+    console.error(err);
+  }
+
 };
