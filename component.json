@@ -6,15 +6,13 @@
   "keywords": [],
   "dependencies": {
     "CamShaft/feature": "*",
-    "visionmedia/superagent": "*",
-    "component/domify": "*"
+    "visionmedia/superagent": "*"
   },
   "development": {},
   "license": "MIT",
   "main": "index.js",
   "scripts": [
-    "index.js",
-    "template.js"
+    "index.js"
   ],
   "styles": [
     "feature-ui.css"
