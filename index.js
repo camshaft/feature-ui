@@ -30,29 +30,33 @@ module.exports = function(options) {
 
   if (!~(window.location.search || '').indexOf('?' + query)) return;
 
+
   var ui = document.createElement('div');
   var ul = document.createElement('ul');
-  var reset = document.createElement('a');
-  var close = document.createElement('a');
 
-  close.className = 'close';
-  reset.className = 'reset';
-  close.innerText = '×';
-  reset.innerText = 'reset';
-  close.href = 'javascript:;';
-  reset.href = 'javascript:;';
-  close.onclick = function() {
-    document.body.removeChild(ui);
-    return false;
+  function createAnchor(className, text, click) {
+    var el = document.createElement('a');
+    el.className = className;
+    el.innerText = text;
+    el.href = 'javascript:;';
+    el.onclick = click;
+    ui.appendChild(el);
   }
-  reset.onclick = function() {
+
+  createAnchor('reset', 'reset', function() {
     feature.reset();
     return false;
-  }
+  })
+  createAnchor('action close', '×', function() {
+    document.body.removeChild(ui);
+    return false;
+  })
+  createAnchor('action minimize', '_', function() {
+    ui.className = ui.className === 'minimized' ? '' : 'minimized'
+    return false;
+  })
 
-  ui.appendChild(reset);
-  ui.appendChild(close);
-  ui.className = 'feature-ui';
+  ui.id = 'feature-ui';
   ui.appendChild(ul);
 
   function createItem(item) {
