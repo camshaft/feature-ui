@@ -12,8 +12,6 @@
   background: white;
   font-size: 14px;
   z-index: 16777271;
-  // This is set to 16777271 to comply with Safari 3's maximum z-index settings.
-  // See: http://stackoverflow.com/questions/8565821/css-max-z-index-value
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
