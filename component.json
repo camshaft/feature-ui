@@ -6,10 +6,8 @@
   "keywords": [],
   "dependencies": {
     "CamShaft/feature": "*",
-    "visionmedia/superagent": "*",
-    "CamShaft/console": "*",
-    "component/cookie": "*",
-    "jofan/Draggy": "*"
+    "jofan/Draggy": "*",
+    "component/each": "*"
   },
   "development": {},
   "license": "MIT",
@@ -19,5 +17,6 @@
   ],
   "styles": [
     "feature-ui.css"
-  ]
+  ],
+  "remotes": []
 }

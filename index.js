@@ -2,9 +2,8 @@
  * Module dependencies
  */
 
-var superagent = require('superagent');
 var feature = require('feature');
-var console = require('console');
+var each = require('each');
 var Draggy;
 
 try {
@@ -17,7 +16,6 @@ try {
  *
  * Options
  *   - query: defaults to 'features'
- *   - url: defaults to '/features.json'
  *
  * @param {Object} options
  */
@@ -26,10 +24,8 @@ module.exports = function(options) {
   options = options || {};
 
   var query = options.query || 'features';
-  var url = options.url || '/features.json';
 
   if (!~(window.location.search || '').indexOf('?' + query)) return;
-
 
   var ui = document.createElement('div');
   var ul = document.createElement('ul');
@@ -59,6 +55,16 @@ module.exports = function(options) {
   ui.id = 'feature-ui';
   ui.appendChild(ul);
 
+  document.body.appendChild(ui);
+  if (Draggy) new Draggy(ui);
+
+  var unsub = feature.watchList(function(features) {
+    while (ul.hasChildNodes()) {
+      ul.removeChild(ul.lastChild);
+    }
+    each(features, createItem);
+  });
+
   function createItem(item) {
     var li = document.createElement('li');
     var label = document.createElement('label');
@@ -70,28 +76,9 @@ module.exports = function(options) {
     checkbox.onchange = function() {
       feature(item) ? feature.disable(item) : feature.enable(item);
     };
-    feature.watch(item, function(enabled) {
-      checkbox.checked = enabled;
-    });
     label.appendChild(checkbox);
     label.appendChild(span);
     li.appendChild(label);
     ul.appendChild(li);
   }
-
-  superagent
-    .get(url)
-    .on('error', onerror)
-    .end(function(res) {
-      if ('testing', arguments);
-      if (!res.ok) return onerror(new Error(res.text));
-      res.body.forEach(createItem);
-      document.body.appendChild(ui);
-      if (Draggy) new Draggy(ui);
-    });
-
-  function onerror(err) {
-    console.error(err);
-  }
-
 };
