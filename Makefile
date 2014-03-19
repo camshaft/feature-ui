@@ -8,4 +8,7 @@ components: component.json
 clean:
 	rm -fr build components
 
-.PHONY: clean
+lint:
+	recess --stripColors feature-ui.css
+
+.PHONY: clean lint

@@ -42,15 +42,17 @@ module.exports = function(options) {
   createAnchor('reset', 'reset', function() {
     feature.reset();
     return false;
-  })
+  });
+
   createAnchor('action close', '×', function() {
     document.body.removeChild(ui);
     return false;
-  })
-  createAnchor('action minimize', '_', function() {
-    ui.className = ui.className === 'minimized' ? '' : 'minimized'
+  });
+
+  createAnchor('action feature-ui-minimize', '_', function() {
+    ui.className = ui.className === 'feature-ui-minimized' ? '' : 'feature-ui-minimized';
     return false;
-  })
+  });
 
   ui.id = 'feature-ui';
   ui.appendChild(ul);
@@ -74,7 +76,8 @@ module.exports = function(options) {
     checkbox.type = 'checkbox';
     checkbox.checked = feature(item);
     checkbox.onchange = function() {
-      feature(item) ? feature.disable(item) : feature.enable(item);
+      if (feature(item)) return feature.disable(item);
+      feature.enable(item);
     };
     label.appendChild(checkbox);
     label.appendChild(span);

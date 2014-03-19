@@ -1,133 +1,133 @@
-#feature-ui {
-  font-family: Helvetica, Arial, sans-serif;
-  padding: 20px;
+.feature-ui {
   position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 16777271;
+  padding: 20px;
+  margin: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background: white;
   border: 1px solid #aaa;
+  border-right-color: #999;
   border-bottom-color: #555;
   border-left-color: #999;
-  border-right-color: #999;
-  margin: 20px;
-  bottom: 0;
-  right: 0;
-  background: white;
-  font-size: 14px;
-  z-index: 16777271;
+  box-shadow: 0 2px 9px rgba(0,0,0, .5);
+  transition: .15s linear box-shadow border-color padding background;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  transition: .15s linear box-shadow border-color padding background;
-  box-shadow: 0px 2px 9px rgba(0,0,0, .5);
 }
 
-#feature-ui.minimized {
+.feature-ui-minimized {
   background: transparent;
-  box-shadow: 0 0 0 transparent;
   border-color: transparent;
+  box-shadow: 0 0 0 transparent;
 }
 
-#feature-ui .reset {
+.feature-ui .reset {
   margin-right: 50px;
   transition: .15s linear all;
 }
 
-#feature-ui.minimized .reset {
-  margin-right: 0px;
+.feature-ui-minimized .reset {
+  margin-right: 0;
 }
 
-#feature-ui ul {
+.feature-ui ul {
   display: block;
-  padding-left: 0px;
-  margin-top: 10px;
-  margin-bottom: 0px;
   max-height: 2000px;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
   opacity: 1;
   transition: .15s linear all;
 }
 
-#feature-ui.minimized ul {
-  margin-top: 0px;
-  max-height: 0px;
+.feature-ui-minimized ul {
+  max-height: 0;
+  margin-top: 0;
   opacity: 0;
 }
 
-#feature-ui li {
+.feature-ui li {
   list-style: none;
 }
 
-#feature-ui label {
+.feature-ui label {
   display: block;
   float: left;
-  clear: both;
   width: 100%;
-  transition: .15s linear all;
   max-height: 30px;
+  clear: both;
+  transition: .15s linear all;
 }
 
-#feature-ui.minimized label {
-  max-height: 0px;
+.feature-ui-minimized label {
+  max-height: 0;
 }
 
-#feature-ui span {
+.feature-ui span {
   display: block;
   float: left;
 }
 
-#feature-ui input {
+.feature-ui input {
   float: right;
 }
 
-#feature-ui input:checked ~ span {
+.feature-ui input:checked ~ span {
   color: black
 }
 
-#feature-ui input ~ span {
+.feature-ui input ~ span {
   color: #ccc
 }
 
-#feature-ui a {
+.feature-ui a {
+  display: inline-block;
+  padding: 5px 10px;
   font-weight: 100;
   color: white;
   text-decoration: none;
   box-sizing: border-box;
-  padding: 5px 10px;
-  display: inline-block;
+  transition: .15s linear all;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  transition: .15s linear all;
 }
 
-#feature-ui.minimized a {
+.feature-ui-minimized a {
   background: #ccc;
 }
 
-#feature-ui a.action {
-  text-align: right;
+.feature-ui .action {
   float: right;
   width: 28px;
-  clear: none;
   margin-left: 4px;
+  clear: none;
+  text-align: right;
 }
 
-#feature-ui a,
-#feature-ui a:visited,
-#feature-ui a:active {
+.feature-ui a,
+.feature-ui a:visited,
+.feature-ui a:active {
+  color: white;
   background: #254d73;
-  color: white;
 }
 
-#feature-ui a:hover {
+.feature-ui a:hover {
+  color: white;
   background: #19334c;
-  color: white;
 }
 
-#feature-ui a + a {
+.feature-ui a + a {
   float: left;
 }
 
-#feature-ui a + a {
+.feature-ui a + a {
   float: right;
   clear: both;
 }
