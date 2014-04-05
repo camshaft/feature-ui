@@ -1,4 +1,4 @@
-.feature-ui {
+#feature-ui {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -20,22 +20,22 @@
   user-select: none;
 }
 
-.feature-ui-minimized {
+#feature-ui.minimized {
   background: transparent;
   border-color: transparent;
   box-shadow: 0 0 0 transparent;
 }
 
-.feature-ui .reset {
+#feature-ui .reset {
   margin-right: 50px;
   transition: .15s linear all;
 }
 
-.feature-ui-minimized .reset {
+#feature-ui.minimized .reset {
   margin-right: 0;
 }
 
-.feature-ui ul {
+#feature-ui ul {
   display: block;
   max-height: 2000px;
   padding-left: 0;
@@ -45,17 +45,17 @@
   transition: .15s linear all;
 }
 
-.feature-ui-minimized ul {
+#feature-ui.minimized ul {
   max-height: 0;
   margin-top: 0;
   opacity: 0;
 }
 
-.feature-ui li {
+#feature-ui li {
   list-style: none;
 }
 
-.feature-ui label {
+#feature-ui label {
   display: block;
   float: left;
   width: 100%;
@@ -64,28 +64,28 @@
   transition: .15s linear all;
 }
 
-.feature-ui-minimized label {
+#feature-ui.minimized label {
   max-height: 0;
 }
 
-.feature-ui span {
+#feature-ui span {
   display: block;
   float: left;
 }
 
-.feature-ui input {
+#feature-ui input {
   float: right;
 }
 
-.feature-ui input:checked ~ span {
+#feature-ui input:checked ~ span {
   color: black
 }
 
-.feature-ui input ~ span {
+#feature-ui input ~ span {
   color: #ccc
 }
 
-.feature-ui a {
+#feature-ui a {
   display: inline-block;
   padding: 5px 10px;
   font-weight: 100;
@@ -99,11 +99,11 @@
   user-select: none;
 }
 
-.feature-ui-minimized a {
+#feature-ui.minimized a {
   background: #ccc;
 }
 
-.feature-ui .action {
+#feature-ui .action {
   float: right;
   width: 28px;
   margin-left: 4px;
@@ -111,23 +111,23 @@
   text-align: right;
 }
 
-.feature-ui a,
-.feature-ui a:visited,
-.feature-ui a:active {
+#feature-ui a,
+#feature-ui a:visited,
+#feature-ui a:active {
   color: white;
   background: #254d73;
 }
 
-.feature-ui a:hover {
+#feature-ui a:hover {
   color: white;
   background: #19334c;
 }
 
-.feature-ui a + a {
+#feature-ui a + a {
   float: left;
 }
 
-.feature-ui a + a {
+#feature-ui a + a {
   float: right;
   clear: both;
 }

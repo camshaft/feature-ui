@@ -49,8 +49,8 @@ module.exports = function(options) {
     return false;
   });
 
-  createAnchor('action feature-ui-minimize', '_', function() {
-    ui.className = ui.className === 'feature-ui-minimized' ? '' : 'feature-ui-minimized';
+  createAnchor('action minimize', '_', function() {
+    ui.className = ui.className === 'minimized' ? '' : 'minimized';
     return false;
   });
 
