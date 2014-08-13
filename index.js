@@ -87,7 +87,7 @@ exports.open = function() {
     checkbox.type = 'checkbox';
     checkbox.checked = value;
     checkbox.onchange = function() {
-      checkbox.checked ? feature.enable(item) : feature.enable(item);
+      checkbox.checked ? feature.enable(item) : feature.disable(item);
     };
     return checkbox;
   }
