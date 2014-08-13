@@ -73,7 +73,8 @@
   float: left;
 }
 
-#feature-ui input {
+#feature-ui input,
+#feature-ui select {
   float: right;
 }
 
@@ -131,5 +132,3 @@
   float: right;
   clear: both;
 }
-
-

@@ -20,13 +20,13 @@ try {
  * @param {Object} options
  */
 
-module.exports = function(options) {
+exports = module.exports = function(options) {
   options = options || {};
-
   var query = options.query || 'features';
-
   if (!~(window.location.search || '').indexOf('?' + query)) return;
+};
 
+exports.open = function() {
   var ui = document.createElement('div');
   var ul = document.createElement('ul');
 
@@ -73,15 +73,39 @@ module.exports = function(options) {
     var span = document.createElement('span');
     span.innerText = item;
     var checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = feature(item);
-    checkbox.onchange = function() {
-      if (feature(item)) return feature.disable(item);
-      feature.enable(item);
-    };
-    label.appendChild(checkbox);
+    var val = feature(item);
+    var opts = feature.options(item);
+    if (typeof opts[0] === 'boolean') label.appendChild(createCheckbox(item, val));
+    else label.appendChild(createSelect(item, val, opts));
     label.appendChild(span);
     li.appendChild(label);
     ul.appendChild(li);
   }
+
+  function createCheckbox (item, value) {
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = value;
+    checkbox.onchange = function() {
+      checkbox.checked ? feature.enable(item) : feature.enable(item);
+    };
+    return checkbox;
+  }
+
+  function createSelect (item, value, opts) {
+    var select = document.createElement('select');
+    select.onchange = function() {
+      feature.set(item, select.value);
+    };
+    for (var i = 0; i < opts.length; i++) {
+      var opt = document.createElement('option');
+      opt.value = opts[i];
+      opt.innerHTML = opts[i];
+      if (opts[i] == value) opt.selected = 'selected';
+      select.appendChild(opt);
+    }
+    return select;
+  }
 };
+
+exports.feature = feature;
