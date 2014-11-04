@@ -1,11 +1,11 @@
 {
   "name": "feature-ui",
-  "repo": "CamShaft/feature-ui",
+  "repo": "camshaft/feature-ui",
   "description": "UI for toggling feature flags",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [],
   "dependencies": {
-    "CamShaft/feature": "*",
+    "camshaft/feature": "*",
     "jofan/Draggy": "*",
     "component/each": "*"
   },
