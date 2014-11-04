@@ -23,7 +23,7 @@ try {
 exports = module.exports = function(options) {
   options = options || {};
   var query = options.query || 'features';
-  if (!~(window.location.search || '').indexOf('?' + query)) return;
+  if (~(window.location.search || '').indexOf('?' + query)) return exports.open();
 };
 
 exports.open = function() {
